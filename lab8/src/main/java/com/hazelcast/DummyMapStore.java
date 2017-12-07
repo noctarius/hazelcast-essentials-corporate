@@ -40,12 +40,10 @@ public class DummyMapStore implements MapStore<Integer, String> {
         System.out.println("Informational: load called");
         // Before returning the value we want to sleep to
         // simulate a slow database
-        sleep(250);
+        sleep(10);
 
         // Create the value and return it from the load method
-        database.select(key);
-
-        return null;
+        return database.select(key);
     }
 
     public Map<Integer, String> loadAll(Collection<Integer> keys) {

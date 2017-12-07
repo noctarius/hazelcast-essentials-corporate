@@ -28,9 +28,7 @@ public class SimpleMapStore implements MapStore<Integer, String> {
     public String load(Integer key) {
         System.out.println("Informational: load called");
         // Create the value and return it from the load method
-
-
-        return null;
+        return database.select(key);
     }
 
     public Map<Integer, String> loadAll(Collection<Integer> keys) {

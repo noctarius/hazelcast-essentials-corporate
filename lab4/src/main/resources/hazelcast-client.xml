@@ -6,7 +6,6 @@
     <cluster-members>
       <!-- Configure the configuration to be made to localhost only -->
       <address>127.0.0.1</address>
-      
     </cluster-members>
   </network>
 

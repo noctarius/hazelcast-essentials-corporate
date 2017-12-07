@@ -21,6 +21,10 @@
   <import resource="member-license-key.xml" />
 
   <!-- Configure the MapStore to be used -->
-
+  <map name="training">
+    <map-store enabled="true">
+      <class-name>com.hazelcast.SimpleMapStore</class-name>
+    </map-store>
+  </map>
 
 </hazelcast>

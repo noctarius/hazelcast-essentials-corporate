@@ -30,7 +30,8 @@ public class Client {
 
         // Querying all users with an age between 18 and 21 and store
         // result in a collection called users
-
+        SqlPredicate predicate = new SqlPredicate("age between 18 and 21");
+        Collection<UserModel> users = map.values(predicate);
 
         long delta = System.currentTimeMillis() - start;
         System.out.println("done. " + delta + " ms");

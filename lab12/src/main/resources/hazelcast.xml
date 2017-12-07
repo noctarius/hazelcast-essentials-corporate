@@ -30,7 +30,9 @@
     <in-memory-format>NATIVE</in-memory-format>
 
     <!-- Configure an index on the attribute age -->
-
+    <indexes>
+      <index ordered="true">age</index>
+    </indexes>
 
   </map>
 

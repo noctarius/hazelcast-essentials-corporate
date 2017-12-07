@@ -21,11 +21,13 @@
   <import resource="member-license-key.xml" />
 
   <!-- Configure a native memory space to store data in -->
-
+  <native-memory enabled="true">
+    <size value="1" unit="GIGABYTES"/>
+  </native-memory>
 
   <map name="training">
     <!-- Configure this map to be in native memory -->
-
+    <in-memory-format>NATIVE</in-memory-format>
 
   </map>
 

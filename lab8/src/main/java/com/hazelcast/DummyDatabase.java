@@ -23,7 +23,7 @@ public class DummyDatabase {
     private final Map<Integer, String> database = new ConcurrentHashMap<>();
 
     public DummyDatabase() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1000; i++) {
             database.put(i, "value-" + i);
         }
     }

@@ -5,17 +5,12 @@
 
   <network>
     <join>
-      <!-- Deactivate multicast discovery which is enabled by default -->
+      <!-- For trainings everyone should create his/her own cluster, therefore
+      multicast is disabled and other nodes are only searched for on localhost -->
       <multicast enabled="false"/>
-
-      <!-- Configure the node to be bound to localhost only -->
       <tcp-ip>
         <interface>127.0.0.1</interface>
       </tcp-ip>
-
     </join>
   </network>
-
-  <!-- Import license key configuration -->
-  <import resource="member-license-key.xml" />
 </hazelcast>
