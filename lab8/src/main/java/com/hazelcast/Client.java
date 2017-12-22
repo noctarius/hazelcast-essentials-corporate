@@ -13,19 +13,13 @@ public class Client {
         // Create a Hazelcast backed map
         Map<Integer, String> map = client.getMap("training");
 
-        // Reading 1000 elements
-        readElements(map);
+        // Write the 1000000 elements to the map
+        for (int i = 0; i < 1000000; i++) {
+            int key = i;
+            String value = "value-" + String.valueOf(i);
 
-        // Now reading the same 1000 elements again, this time they're already loaded
-        readElements(map);
-    }
-
-    private static void readElements(Map<Integer, String> map) {
-        for (int i = 0; i < 1000; i++) {
-            long start = System.currentTimeMillis();
-            String value = map.get(i);
-            long required = System.currentTimeMillis() - start;
-            System.out.println("Value '" + value + "' retrieved in " + required + " ms.");
+            // Put the entry into the map
+            map.put(key, value);
         }
     }
 }

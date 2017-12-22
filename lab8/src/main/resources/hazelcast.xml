@@ -20,12 +20,11 @@
   <!-- Import license key configuration -->
   <import resource="member-license-key.xml" />
 
-  <map name="training">
-    <map-store enabled="true">
-      <class-name>com.hazelcast.DummyMapStore</class-name>
-    </map-store>
+  <!-- Configure a native memory space to store data in -->
 
-    <!-- Configure eviction for 5 elements per member -->
+
+  <map name="training">
+    <!-- Configure this map to be in native memory -->
 
 
   </map>
