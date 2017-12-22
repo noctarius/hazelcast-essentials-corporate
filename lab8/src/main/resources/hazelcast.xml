@@ -26,9 +26,8 @@
     </map-store>
 
     <!-- Configure eviction for 5 elements per member -->
-    <max-size policy="PER_NODE">20</max-size>
-    <eviction-policy>RANDOM</eviction-policy>
-
+    <max-size policy="PER_NODE">5</max-size>
+    <eviction-policy>LRU</eviction-policy>
   </map>
 
 </hazelcast>
