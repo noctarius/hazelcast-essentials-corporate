@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.9.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <network>
+    <join>
+      <!-- For trainings everyone should create his/her own cluster, therefore
+      multicast is disabled and other nodes are only searched for on localhost -->
+      <multicast enabled="false"/>
+      <tcp-ip>
+        <interface>127.0.0.1</interface>
+      </tcp-ip>
+    </join>
+  </network>
+
+  <!-- Configure statistics to be sent to Management Center -->
+  <management-center enabled="true">http://localhost:8080/mancenter</management-center>
+
+  <!-- Import license key configuration -->
+  <import resource="member-license-key.xml" />
+
+  <security enabled="true">
+    <!-- Configure the com.hazelcast.TrainingLoginModule with username(principal)/password for:
+         - allaccess/securepass
+         - restricted/insecurepass
+    -->
+    <client-login-modules>
+      <login-module class-name="com.hazelcast.TrainingLoginModule" usage="REQUIRED">
+        <properties>
+          <property name="allaccess">securepass</property>
+          <property name="restricted">insecurepass</property>
+        </properties>
+      </login-module>
+    </client-login-modules>
+
+    <client-permissions>
+      <!-- Configure the map-permission for all access with the following actions:
+           - acquire
+           - put
+           - add
+           - create
+           - read
+           - remove
+           - lock
+           - listen
+           - index
+           - intercept
+      -->
+      <map-permission name="training" principal="allaccess">
+        <actions>
+          <action>acquire</action>
+          <action>put</action>
+          <action>add</action>
+          <action>create</action>
+          <action>read</action>
+          <action>remove</action>
+          <action>lock</action>
+          <action>listen</action>
+          <action>index</action>
+          <action>intercept</action>
+        </actions>
+      </map-permission>
+
+      <!-- Configure the map-permission for restricted with the following actions:
+           - acquire
+           - create
+           - read
+      -->
+      <map-permission name="training" principal="restricted">
+        <actions>
+          <action>acquire</action>
+          <action>create</action>
+          <action>read</action>
+        </actions>
+      </map-permission>
+    </client-permissions>
+  </security>
+
+</hazelcast>
